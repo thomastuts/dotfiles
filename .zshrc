@@ -3,7 +3,7 @@ export ZSH=/Users/thomastuts/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -15,9 +15,17 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/plugins/zsh-git-prompt/zshrc.sh
 
 # Preferred editor
 export EDITOR='vim'
+
+# Customize prompt
+PROMPT='%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_super_status) [%{$fg_bold[red]%}%*%{$reset_color%}]
+$ '
+
+# Load z to jump
+. ~/z.sh
 
 # User configuration
 source ~/.paths
