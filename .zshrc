@@ -3,7 +3,7 @@ export ZSH=/Users/thomastuts/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="amuse"
+ZSH_THEME=""
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -15,17 +15,19 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/zsh-git-prompt/zshrc.sh
+# source $ZSH/custom/plugins/zsh-git-prompt/zshrc.sh
 
 # Preferred editor
 export EDITOR='vim'
 
 # Customize prompt
-PROMPT='%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_super_status) [%{$fg_bold[red]%}%*%{$reset_color%}]
-$ '
+# PROMPT='%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_super_status) [%{$fg_bold[red]%}%*%{$reset_color%}]
+# $ '
+autoload -U promptinit; promptinit
+prompt pure
 
 # Load z to jump
-. ~/z.sh
+# . ~/z.sh
 
 # User configuration
 source ~/.paths
@@ -35,3 +37,7 @@ source ~/.extra
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
